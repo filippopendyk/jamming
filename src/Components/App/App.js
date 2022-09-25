@@ -8,7 +8,7 @@ export class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      searchResults: [{name: 'Przejmujemy jutuby', artist: 'Ekipa', album: 'EkipaO', id: 0}, {name: 'example', artist: 'example', album: 'example', id: 1}],
+      searchResults: [{name: 'Przejmujemy jutuby', artist: 'Ekipa', album: 'EkipaO', id: 0}, {name: 'example', artist: 'example', album: 'example', id: 4}],
       playlistName: 'Playlist Name Example',
       playlistTracks: [{name: 'Example1', artist: 'Artist1', album: 'Album1', id: 0}, {name: 'Example2', artist: 'Artist2', album: 'Album2', id: 1}]
     }
@@ -24,14 +24,13 @@ export class App extends React.Component{
     });
 
     if(filteredPlaylist.length !== 0){
+      console.log('piosenka jest juz w playliscie');
       return;
     } else {
-      let actualState = this.state;
-      let newState = actualState.playlistTracks.push(track);
-      this.setState(newState);
+      this.setState(prevState => ({
+        playlistTracks: this.state.playlistTracks.concat(track)
+      }))
     }
-
-
   }
 
   render(){
