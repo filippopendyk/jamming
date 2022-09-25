@@ -15,7 +15,22 @@ export class App extends React.Component{
   }
 
   addTrack(track){
-    
+    const filteredPlaylist = this.state.playlistTracks.filter(playlistTrack => {
+      if(playlistTrack.id === track.id){
+        return true;
+      }
+      return false;
+    });
+
+    if(filteredPlaylist.length !== 0){
+      return;
+    } else {
+      let actualState = this.state;
+      let newState = actualState.playlistTracks.push(track);
+      this.setState(newState);
+    }
+
+
   }
 
   render(){
