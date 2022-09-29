@@ -3,12 +3,13 @@ import { SearchBar } from '../../Components/SearchBar/SearchBar';
 import { SearchResults } from '../../Components/SearchResults/SearchResults';
 import { Playlist } from '../../Components/Playlist/Playlist';
 import React from 'react';
+import Spotify from '../../util/Spotify';
 
 export class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      searchResults: [{name: 'Przejmujemy jutuby', artist: 'Ekipa', album: 'EkipaO', id: 0, uri: 'www.spotify.com/uri1'}, {name: 'example', artist: 'example', album: 'example', id: 4, uri: 'www.spotify.com/uri2'}],
+      searchResults: Spotify.search(),
       playlistName: 'Playlist Name Example',
       playlistTracks: [{name: 'Example1', artist: 'Artist1', album: 'Album1', id: 0, uri: 'www.spotify.com/uri3'}, {name: 'Example2', artist: 'Artist2', album: 'Album2', id: 1, uri: 'www.spotify.com/uri4'}]
     }
