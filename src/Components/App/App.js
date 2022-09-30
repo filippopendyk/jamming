@@ -9,9 +9,9 @@ export class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      searchResults: [{name: 'Example1', artist: 'Artist1', album: 'Album1', id: 0, uri: 'www.spotify.com/uri3'}, {name: 'Example2', artist: 'Artist2', album: 'Album2', id: 1, uri: 'www.spotify.com/uri4'}],
+      searchResults: [],
       playlistName: 'Playlist Name Example',
-      playlistTracks: [{name: 'Example1', artist: 'Artist1', album: 'Album1', id: 0, uri: 'www.spotify.com/uri3'}, {name: 'Example2', artist: 'Artist2', album: 'Album2', id: 1, uri: 'www.spotify.com/uri4'}]
+      playlistTracks: []
     }
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -67,7 +67,9 @@ export class App extends React.Component{
   }
 
   search(term){
-    console.log(term);
+    Spotify.search(term).then(searchResults => {
+      this.setState({searchResults: searchResults});
+    })
   }
 
   render(){
