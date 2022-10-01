@@ -64,6 +64,7 @@ export class App extends React.Component{
       return track.uri;
     });
     console.log(trackURIs);
+    Spotify.savePlaylist(this.state.playlistName,this.state.playlistTracks);
   }
 
   search(term){
