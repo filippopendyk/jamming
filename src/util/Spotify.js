@@ -1,4 +1,4 @@
-const clientId = '';
+const clientId = 'ff90f41cfa5c4c0ebc1e2b3c831e44c2';
 const redirectUri = 'https://633eeca96574270cfa538594--super-lamington-aa4bfe.netlify.app/';
 let accessToken;
 
