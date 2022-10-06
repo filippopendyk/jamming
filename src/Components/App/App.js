@@ -33,9 +33,11 @@ export class App extends React.Component{
       return;
     } else {
       this.setState(prevState => ({
-        playlistTracks: this.state.playlistTracks.concat(track)
+        playlistTracks: this.state.playlistTracks.concat(track),
+        searchResults: this.state.searchResults.filter(trackItem => trackItem !== track)
       }))
     }
+
   }
 
   removeTrack(track){
@@ -45,7 +47,8 @@ export class App extends React.Component{
           return true;
         }
         return false;
-      })
+      }),
+      searchResults: [track, ...this.state.searchResults]
     }))
   }
 

@@ -1,5 +1,5 @@
-const clientId = '';
-const redirectUri = 'https://filippopendykjamming.surge.sh/'
+const clientId = 'ff90f41cfa5c4c0ebc1e2b3c831e44c2';
+const redirectUri = 'http://localhost:3000/';
 let accessToken;
 
 const Spotify = {

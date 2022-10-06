@@ -17,15 +17,31 @@ export class Track extends React.Component{
     }
 
     render(){
-        return(
-            <div className="Track">
-                <div className="Track-information">
-                    <h3>{this.props.track.name}</h3>
-                    <p>{this.props.track.artist} | {this.props.track.album}</p>
+        if(this.props.isOnPlaylist){
+            return (
+                <div className="Track">
+                    <div className="Track-information">
+                        <h3>{this.props.track.name}</h3>
+                        <p>{this.props.track.artist} | {this.props.track.album}</p>
+                    </div>
+
+                    <button className="Track-action" onClick={this.removeTrack}>-</button>
                 </div>
-                <button className="Track-action" onClick={this.addTrack}>+</button>
-                <button className="Track-action" onClick={this.removeTrack}>-</button>
-            </div>
-        )
-    }
+            )
+        }
+        else {
+            return (
+                (
+                    <div className="Track">
+                        <div className="Track-information">
+                            <h3>{this.props.track.name}</h3>
+                            <p>{this.props.track.artist} | {this.props.track.album}</p>
+                        </div>
+        
+                        <button className="Track-action" onClick={this.addTrack}>+</button>
+                    </div>
+                )
+            )
+        }
+        }
 }
